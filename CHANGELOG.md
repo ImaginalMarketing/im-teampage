@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Add template for Modest layout (/view/layout-modest.php)
 - Add setting to toggle default CSS on/off (/func/[option + shortcode].php)
 - Maybe register a few common custom fields (person's job title, specialty, etc.)
+- For the love of Christ, clean up (/assets/team.css). It's fugly.
 
 _ _ _
 
