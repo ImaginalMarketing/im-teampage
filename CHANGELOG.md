@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Replace Pardo filters with taxonomy loops (/view/layout-fancy.php)
 - Add template for Modest layout (/view/layout-modest.php)
 - Add setting to toggle default CSS on/off (/func/[option + shortcode].php)
+- Maybe register a few common custom fields (person's job title, specialty, etc.)
 
 _ _ _
 
