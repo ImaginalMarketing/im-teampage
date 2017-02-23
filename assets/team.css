@@ -1,0 +1,196 @@
+
+  #teampage {
+    background-image: none;
+    background-color: #eff2f5;
+    padding-top: 30px; }
+    #teampage .medium-12 {
+      padding-top: 0; }
+
+
+/*********************
+OUR TEAM / FIND A STYLIST
+*********************/
+form#teamfilter #drop-city {
+  margin-bottom: 20px; }
+  form#teamfilter #drop-city label {
+    cursor: pointer;
+    border: none;
+    position: relative;
+    background: #000;
+    padding: 30px 15px;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-family: "essonnes-display", sans-serif;
+    letter-spacing: 2px;
+    border: 5px solid #eff2f5;
+    transition: all 0.25s ease-in-out; }
+    form#teamfilter #drop-city label:hover {
+      box-shadow: none;
+      background: #323232; }
+    form#teamfilter #drop-city label.on {
+      background: #1882c5; }
+    form#teamfilter #drop-city label:first-child {
+      margin-left: 0; }
+    form#teamfilter #drop-city label:last-child {
+      margin-right: 0; }
+    form#teamfilter #drop-city label input {
+      display: none; }
+      form#teamfilter #drop-city label input + span {
+        color: #fff;
+        display: inline-block;
+        position: relative; }
+
+form#teamfilter #next-step {
+  display: none; }
+  form#teamfilter #next-step ul#stylistSort {
+    text-align: center;
+    margin: 0 auto;
+    display: table;
+    padding-bottom: 10px; }
+    form#teamfilter #next-step ul#stylistSort li {
+      display: inline-block;
+      text-align: center;
+      margin: 10px 20px;
+      vertical-align: top;
+      transition: all 0.25s ease-in-out; }
+      form#teamfilter #next-step ul#stylistSort li.on {
+        border-top: 2px solid #1882c5;
+        margin-top: 8px; }
+      form#teamfilter #next-step ul#stylistSort li h5 {
+        color: #323232; }
+      form#teamfilter #next-step ul#stylistSort li label {
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 2px;
+        font-size: 1rem; }
+        form#teamfilter #next-step ul#stylistSort li label input {
+          display: none; }
+  form#teamfilter #next-step label.specialty {
+    color: #1882c5;
+    text-shadow: 0 1px 0 #fff;
+    font-family: Helvetica;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.6rem;
+    text-align: center;
+    cursor: pointer; }
+    form#teamfilter #next-step label.specialty input {
+      visibility: hidden;
+      display: inline;
+      font-size: 1rem; }
+      form#teamfilter #next-step label.specialty input:before {
+        font-family: FontAwesome;
+        content: '\f111';
+        visibility: visible;
+        color: #d1deea;
+        transition: all 0.25s ease-in-out; }
+      form#teamfilter #next-step label.specialty input:checked:before {
+        font-family: FontAwesome;
+        content: '\f058';
+        visibility: visible;
+        color: #7a8690; }
+
+form#teamfilter #last-step {
+  position: relative;
+  border-top: 1px solid #d1deea;
+  display: none; }
+  form#teamfilter #last-step.on {
+    display: block; }
+  form#teamfilter #last-step .drop-experience {
+    text-align: center;
+    list-style: none;
+    padding-top: 20px; }
+    form#teamfilter #last-step .drop-experience li {
+      display: inline-block;
+      padding: 10px; }
+      form#teamfilter #last-step .drop-experience li label {
+        cursor: pointer;
+        background-color: #d1deea;
+        border-radius: 5px;
+        padding: 5px 7px;
+        max-height: 30px;
+        color: #7a8690;
+        font-family: Helvetica;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.6rem;
+        transition: all 0.25s ease-in-out; }
+        form#teamfilter #last-step .drop-experience li label.active, form#teamfilter #last-step .drop-experience li label:hover {
+          color: #fff;
+          background-color: #1882c5; }
+        form#teamfilter #last-step .drop-experience li label input {
+          display: none; }
+
+#displayTeam {
+  display: none; }
+
+h6#noitems {
+  display: none; }
+  h6#noitems.on {
+    display: block;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto; }
+
+#theteam {
+  margin-top: 50px;
+  margin-bottom: 150px; }
+  @media screen and (max-width: 63.9375em) {
+    #theteam {
+      margin-top: 80px; } }
+  #theteam .team_member {
+    margin-bottom: 30px; }
+    #theteam .team_member .team_wrap {
+      padding: 10% 10% 15%;
+      background: #fff;
+      box-shadow: 7px 7px 0px #e3e9ef; }
+      #theteam .team_member .team_wrap .team_img {
+        margin-bottom: 10px;
+        width: 100%;
+        max-height: 300px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover; }
+        #theteam .team_member .team_wrap .team_img:after {
+          content: "";
+          display: block;
+          padding-bottom: 100%; }
+      #theteam .team_member .team_wrap .team_info {
+        font-size: 0.9rem;
+        line-height: 1rem;
+        color: #1882c5; }
+        #theteam .team_member .team_wrap .team_info span {
+          margin-bottom: 5px;
+          font-weight: bold;
+          letter-spacing: 2px; }
+        #theteam .team_member .team_wrap .team_info h4 {
+          text-transform: uppercase;
+          letter-spacing: 2px;
+          line-height: 1.7rem;
+          font-size: 1.25rem;
+          margin: 30px 0 0;
+          color: #1882c5; }
+        #theteam .team_member .team_wrap .team_info h5 {
+          color: #323232;
+          font-size: 1rem;
+          font-family: "essonnes-display", sans-serif;
+          letter-spacing: none;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #dadada; }
+        @media screen and (max-width: 63.9375em) {
+          #theteam .team_member .team_wrap .team_info h4 {
+            font-size: 1rem;
+            line-height: 1rem; }
+          #theteam .team_member .team_wrap .team_info h5 {
+            font-size: 0.9rem; } }
+        @media screen and (max-width: 39.9375em) {
+          #theteam .team_member .team_wrap .team_info h4 {
+            font-size: 1.2rem; } }
+        #theteam .team_member .team_wrap .team_info span {
+          text-transform: uppercase; }
+
