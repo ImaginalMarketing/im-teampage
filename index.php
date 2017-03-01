@@ -27,6 +27,11 @@ Author URI: http://imaginalmarketing.com
 */
 
 // hello
+require_once( 'BFIGitHubPluginUploader.php' );
+if ( is_admin() ) {
+    new BFIGitHubPluginUpdater( __FILE__, 'ImaginalMarketing', "im-teampage" );
+}
+
 require_once('func/cpt.php');
 require_once('func/option.php');
 require_once('func/shortcode.php');
