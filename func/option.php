@@ -28,11 +28,12 @@ function imteam_settings_init() {
  'imteam_field_layout_cb',
  'imteam',
  'imteam_section_developers',
- [
+	 array( 
+
  'label_for' => 'imteam_field_layout',
  'class' => 'imteam_row',
  'imteam_custom_data' => 'custom',
- ]
+ )
  );
 }
 add_action( 'admin_init', 'imteam_settings_init' );
