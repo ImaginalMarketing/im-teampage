@@ -10,6 +10,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 _ _ _
 
-## [1.0a] - 2017-02-23
+## [0.0.3] - 2017-05-09
+#### Added
+- Modest layout
+- Advanced Custom Fields
+#### Changed
+- Assets load order
+
+
+## [0.0.1] - 2017-02-23
 #### Added
 - The plugin. Hello world!

@@ -3,10 +3,6 @@
 // Output everything via shortcode + choose layout based on setting
 function teampage_shortcode() {
 
-    // add layout styles
-    wp_register_style( 'imteam-css', plugin_dir_url( __FILE__ ) . '../assets/team.css', array(), '', 'all' );
-    wp_enqueue_style( 'imteam-css' );
-
 	// add js (isotope + custom loop AJAX)
 	wp_enqueue_script( 'isotope-js', 'https://cdn.jsdelivr.net/isotope/3.0.1/isotope.pkgd.min.js', array( 'jquery' ), '', true );
 	wp_enqueue_script( 'imteam-js', plugin_dir_url( __FILE__ ) . '../assets/team.js' );
@@ -24,3 +20,11 @@ function teampage_shortcode() {
     
 }
 add_shortcode('im-teampage', 'teampage_shortcode');
+
+
+
+function imteamcss() {
+    wp_register_style('imteam-css', plugin_dir_url( __FILE__ ) . '../assets/team.css');
+    wp_enqueue_style('imteam-css');
+}
+add_action ('wp_enqueue_scripts', 'imteamcss');
