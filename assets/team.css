@@ -242,8 +242,10 @@ MODEST LAYOUT
 *********************/
 
 #teampage-modest .team_member {
+	display: inline-block;
 	border-bottom: 1px solid #ccc;
 	padding: 20px 0;
+	clear: both;
 }
 #teampage-modest .team_member:last-child {
 	border-bottom: none;
