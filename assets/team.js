@@ -33,7 +33,8 @@ $('#teamfilter').on('click', 'input, radio', function(event) {
         $('#noitems').addClass('on');
       } else { $('#noitems').removeClass('on'); }
 
-      // execute
+      // destroy any previous layouts, then execute new one
+      $grid.isotope('destroy');
       $grid.isotope({
         sortBy: 'original-order',
         layoutMode: 'masonry'
@@ -54,8 +55,8 @@ $("#drop-city label").click(function(){
   $("#stylistSort li input, #last-step input").attr("checked", false);
   $("#stylistSort li").removeClass('on');
   $("#last-step").fadeOut('slow');
-  var $grid = $('#theteam');
-  $grid.isotope('reloadItems');
+  //var $grid = $('#theteam');
+  //$grid.isotope('reloadItems');
   $(this).addClass('on');
   $("#drop-city label").not(this).removeClass('on');
   setTimeout(function(){
@@ -68,8 +69,8 @@ $("#stylistSort li").click(function(){
   $(this).addClass('on');
   $("#stylistSort li").not(this).removeClass('on');
   $("#last-step input").prop("checked", false);
-  var $grid = $('#theteam');
-  $grid.isotope('reloadItems');
+  //var $grid = $('#theteam');
+  //$grid.isotope('reloadItems');
     $("#last-step").fadeIn('slow');
 });
 // active classes on final step
