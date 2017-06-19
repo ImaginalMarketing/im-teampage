@@ -3,6 +3,7 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### To Do:
+- Add a post-install prompt to select layout style (shortcode doesn't work until a setting is saved)
 - Add setting to toggle default CSS on/off (/func/[option + shortcode].php)
 - Maybe register a few common custom fields (person's job title, specialty, etc.)
 - For the love of Christ, clean up (/assets/team.css). It's fugly.
