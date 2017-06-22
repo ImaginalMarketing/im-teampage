@@ -39,6 +39,9 @@ $('#teamfilter').on('click', 'input, radio', function(event) {
         sortBy: 'original-order',
         layoutMode: 'masonry'
       });
+
+      // force Foundation's equalizer to refire
+      $(window).trigger('resize');
     }
   });
 });
