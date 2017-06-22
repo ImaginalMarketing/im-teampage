@@ -36,7 +36,7 @@ query_posts($query_vars);?>
 			if( $image ) { ?>
 			<div class="team_img" style="background-image:url('<?php echo $image; ?>');"></div>
 		<?php } else { ?>
-			<div class="team_img" style="background-image:url('<?php bloginfo('template_url'); ?>/assets/images/no-img.jpg');"></div>
+			<div class="team_img" style="background-image:url('<?php echo WP_PLUGIN_URL.'/im-teampage/assets/no-img.jpg'; ?>');"></div>
 		<?php } ?>
 		<div class="team_info">
 			<h4><?php the_title(); ?></h4>
