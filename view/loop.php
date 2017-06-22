@@ -23,24 +23,30 @@ query_posts($query_vars);?>
 
 <?php
     if (have_posts()) : while (have_posts()) : the_post();
-
 	$team_services = $service_cat;
 ?>
 <div class="team_member small-12 medium-4 large-3 columns entry <?php echo $team_services; ?>">
 	<div class="team_wrap">
 		<?php 
-			$image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+			$getimage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 			$team_exp = wp_get_post_terms($post->ID, 'team_experience', array("fields" => "all"));
 			$team_loc = wp_get_post_terms($post->ID, 'team_location', array("fields" => "all"));
 
-			if( $image ) { ?>
-			<div class="team_img" style="background-image:url('<?php echo $image; ?>');"></div>
-		<?php } else { ?>
-			<div class="team_img" style="background-image:url('<?php echo WP_PLUGIN_URL.'/im-teampage/assets/no-img.jpg'; ?>');"></div>
-		<?php } ?>
+			if( $getimage ) {
+				$image = $getimage;
+			} else { $image = WP_PLUGIN_URL.'/im-teampage/assets/no-img.jpg'; }
+
+			// show bios?
+		    $imteam_bios = get_option('show_bios');
+		    if ($imteam_bios == '1') {
+		        echo '<a class="popup" data-featherlight="iframe" data-featherlight-iframe-min-height="100%" data-featherlight-iframe-min-width="100%" href="'.get_permalink().'"><div class="team_img" style="background-image:url(\''.$image.'\');"></div></a>';
+		    } else {
+		        echo '<div class="team_img" style="background-image:url(\''.$image.'\');"></div>';
+		    }
+		?>
 		<div class="team_info">
 			<h4><?php the_title(); ?></h4>
-			<h5><?php the_field('title'); ?></h5>
+			<h5><?php the_field('team_title'); ?></h5>
 			<span><?php echo $team_exp[0]->name; ?></span><br/>
 		</div>
 	</div>

@@ -1,9 +1,9 @@
 <html>
 <head>
 <title><?php wp_title( '|', true, 'right' ); ?></title>
-<link rel="stylesheet" href="<?php bloginfo('template_url') ?>/style.css" />	
+<link rel="stylesheet" href="<?php echo WP_PLUGIN_URL; ?>/im-teampage/assets/team.css" />	
 <style>
-	body {
+	body.team-member {
 		padding: 30px;
 	}
 </style>
@@ -13,30 +13,33 @@
 <body class="team-member">
 <?php
 	while (have_posts()) : the_post();
-	$image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+
+	$getimage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 	$team_exp = wp_get_post_terms($post->ID, 'team_experience', array("fields" => "all"));
 	$team_loc = wp_get_post_terms($post->ID, 'team_location', array("fields" => "all"));
+
+	if( $getimage ) {
+		$image = $getimage;
+	} else { $image = WP_PLUGIN_URL.'/im-teampage/assets/no-img.jpg'; }
+
 ?>
-	<div id="bio" class="row" data-equalizer data-equalize-on="medium">
-		<div id="biothumb" class="medium-6 large-5 columns" data-equalizer-watch>
-			<?php if( $image ) { ?>
-				<div class="team_img" style="background-image:url('<?php echo $image; ?>');"></div>
-			<?php } else { ?>
-				<div class="team_img" style="background-image:url('<?php bloginfo('template_url'); ?>/assets/images/no-img.jpg');"></div>
-			<?php } ?>
-			<h3><?php the_title(); ?></h3>
-			<h6><?php the_field('team_title'); ?> <span>&bull;</span> <?php echo $team_loc[0]->name; ?></h6>
+	<div id="bio" class="row">
+		<div id="biothumb" class="medium-4 columns">
+			<img class="team_img" src="<?php echo $image; ?>" alt="<?php the_title_attribute(); ?>" />
+			<h2><?php the_title(); ?></h2>
+			<h5><?php the_field('team_title'); ?></h5>
+			<h5><?php echo $team_loc[0]->name; ?></h5>
 			<br/>
+
+			<?php // show booking button?
+		    $imteam_booking = get_option('show_booking');
+		    if ($imteam_booking == '1') {
+		        echo '<a class="button booking" href="'.get_site_url().'/'.get_option("booking_link").'">Book Now</a>';
+		    } else { echo ''; } ?>
+
 		</div>
-		<div id="bioinfo" class="medium-10 large-11 columns" data-equalizer-watch>
-			<h6>My specialty is...</h6>
-			<p><?php the_field('team_specialty'); ?></p>
-			<h6>What I want every client to know about me...</h6>
-			<p><?php the_field('team_whattoknow'); ?></p>
-			<h6>My favorite thing about my work...</h6>
-			<p><?php the_field('team_favthing'); ?></p>
-			<h6>My dream client is...</h6>
-			<p><?php the_field('team_dreamclient'); ?></p>
+		<div id="bioinfo" class="medium-8 columns">
+			<?php the_content(); ?>
 		</div>
 	</div>
 <?php endwhile; ?>

@@ -40,7 +40,6 @@ $('#teamfilter').on('click', 'input, radio', function(event) {
         layoutMode: 'masonry'
       });
 
-      // force Foundation's equalizer to refire
       $(window).trigger('resize');
     }
   });

@@ -1,67 +1,99 @@
 <?php
 
+// Register General section + its settings
+add_action('admin_init', 'imteam_settings_init');  
+function imteam_settings_init() {  
+    add_settings_section(  
+        'imteam_general', // Section ID 
+        'General Options', // Section Title
+        'general_section_cb', // Callback
+        'imteam' // What Page?  This makes the section show up on the imteam Settings Page
+    );
 
-// hey future Michael -- add another option to turn default styles on/off
+    register_setting('imteam','select_layout', 'esc_attr');
+    add_settings_field( // Option 1
+        'select_layout', // Option ID
+        'Select Layout', // Label
+        'imteam_binary_cb', // !important - This is where the args go!
+        'imteam', // Page it will be displayed (imteam Settings)
+        'imteam_general', // Name of our section
+        array( // The $args
+            'select_layout', // Should match Option ID
+            'Fancy', // Radio Option 1
+            'Modest', // Radio Option 2
+			'A straightforward page with the essentials is one option on the table, or hey maybe you\'re feeling a little dangerous and wanna click stuff and make things go.' // Description
+        )  
+    ); 
 
+    register_setting('imteam','show_bios', 'esc_attr');
+    add_settings_field( // Option 2
+        'show_bios', // Option ID
+        'Display Bios', // Label
+        'imteam_checkbox_cb', // !important - This is where the args go!
+        'imteam', // Page it will be displayed
+        'imteam_general', // Name of our section (imteam Settings)
+        array( // The $args
+            'show_bios', // Should match Option ID
+            'Enables team member bios which popup in a nifty lightbox.' // Description
+        )  
+    ); 
 
+    register_setting('imteam','show_booking', 'esc_attr');
+    add_settings_field( // Option 2
+        'show_booking', // Option ID
+        'Show <u>Book Now</u> Button', // Label
+        'imteam_checkbox_cb', // !important - This is where the args go!
+        'imteam', // Page it will be displayed
+        'imteam_general', // Name of our section (imteam Settings)
+        array( // The $args
+            'show_booking', // Should match Option ID
+            'Displays a booking button inside popup bios (if bios are enabled as well).' // Description
+        )  
+    ); 
 
-/**
- * custom option and settings
- */
-function imteam_settings_init() {
- // register a new setting for "imteam" page
- register_setting( 'imteam', 'imteam_options' );
- 
- // register a new section in the "imteam" page
- add_settings_section(
- 'imteam_section_developers',
- __( 'hello, just the one option for now', 'imteam' ),
- '',
- 'imteam'
- );
- 
- // register a new field in the "imteam_section_developers" section, inside the "imteam" page
- add_settings_field(
- 'imteam_field_layout', // as of WP 4.6 this value is used only internally
- // use $args' label_for to populate the id inside the callback
- __( 'Select flavor:', 'imteam' ),
- 'imteam_field_layout_cb',
- 'imteam',
- 'imteam_section_developers',
-	 array( 
+    register_setting('imteam','booking_link', 'esc_attr');
+    add_settings_field( // Option 2
+        'booking_link', // Option ID
+        'Booking URL', // Label
+        'imteam_textbox_cb', // !important - This is where the args go!
+        'imteam', // Page it will be displayed
+        'imteam_general', // Name of our section (imteam Settings)
+        array( // The $args
+            'booking_link', // Should match Option ID
+            'Must be relative to site root URL.' // Description
+        )  
+    ); 
 
- 'label_for' => 'imteam_field_layout',
- 'class' => 'imteam_row',
- 'imteam_custom_data' => 'custom',
- )
- );
 }
-add_action( 'admin_init', 'imteam_settings_init' );
- 
- 
-// layout field cb
-function imteam_field_layout_cb( $args ) {
- // get the value of the setting we've registered with register_setting()
- $options = get_option( 'imteam_options' );
- // output the field
- ?>
- <select id="<?php echo esc_attr( $args['label_for'] ); ?>"
- data-custom="<?php echo esc_attr( $args['imteam_custom_data'] ); ?>"
- name="imteam_options[<?php echo esc_attr( $args['label_for'] ); ?>]"
- >
- <option value="modest" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'modest', false ) ) : ( '' ); ?>>
- <?php esc_html_e( 'Modest', 'imteam' ); ?>
- </option>
- <option value="fancy" <?php echo isset( $options[ $args['label_for'] ] ) ? ( selected( $options[ $args['label_for'] ], 'fancy', false ) ) : ( '' ); ?>>
- <?php esc_html_e( 'Fancy', 'imteam' ); ?>
- </option>
- </select>
- <p class="description">
- <?php esc_html_e( 'A straightforward page with the essentials is one option on the table, or hey maybe you\'re feeling a little dangerous and wanna click stuff and make things go.', 'imteam' ); ?>
- </p>
- <?php
+
+// Section Info Callback
+function general_section_cb() {
+    echo '<p>This section grows slowly but surely.</p>';  
 }
- 
+
+// Binary Radio Callback
+function imteam_binary_cb($args) {
+    $option = get_option($args[0]); ?>
+	<input name="<?php echo $args[0]; ?>" type="radio" value="0" <?php checked( 0, $option ); ?> /> <?php echo $args[1]; ?><br/>
+	<input name="<?php echo $args[0]; ?>" type="radio" value="1" <?php checked( 1, $option ); ?> /> <?php echo $args[2]; ?>
+	<p class="description"><?php echo $args[3]; ?></p>
+<?php }
+
+// Checkbox Callback
+function imteam_checkbox_cb($args) {
+    $option = get_option($args[0]); ?>
+    <input type="checkbox" id="<?php echo $args[0]; ?>" name="<?php echo $args[0]; ?>" value="1" <?php checked( 1, $option ); ?> />
+	<p class="description"><?php echo $args[1]; ?></p>
+<?php }
+
+// Textbox Callback
+function imteam_textbox_cb($args) {
+    $option = get_option($args[0]);
+    echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
+}
+
+
+
 /**
  * top level menu
  */
@@ -70,7 +102,7 @@ function imteam_options_page() {
  add_submenu_page(
  'edit.php?post_type=people',
  'Imaginal Team Page Settings',
- '⚙ Settings',
+ 'Settings',
  'manage_options',
  'imteam',
  'imteam_options_page_html'
@@ -110,7 +142,7 @@ function imteam_options_page_html() {
  // (sections are registered for "imteam", each field is registered to a specific section)
  do_settings_sections( 'imteam' );
  // output save settings button
- submit_button( 'Apply Layout' );
+ submit_button( 'Save Those Settings!' );
  ?>
  </form>
  </div>

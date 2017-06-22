@@ -11,18 +11,24 @@ function teampage_shortcode() {
     wp_localize_script( 'imteam-js', 'imtheme', $wp_path );
 
 	// select layout
-    $imteam_options = get_option('imteam_options');
-    if ($imteam_options['imteam_field_layout'] == 'modest') {
+    $imteam_layout = get_option('select_layout');
+    if ($imteam_layout == '1') {
         require(plugin_dir_path( __FILE__ ) . '../view/layout-modest.php');
-    } elseif ($imteam_options['imteam_field_layout'] == 'fancy') {
+    } elseif ($imteam_layout == '0') {
         require(plugin_dir_path( __FILE__ ) . '../view/layout-fancy.php');
     }
     
 }
 add_shortcode('im-teampage', 'teampage_shortcode');
 
+// add class to body (currently for featherlight styling purposes)
+function im_team_class( $classes ) {
+    $classes[] = 'im_team_page';
+    return $classes;  
+}
+add_filter( 'body_class','im_team_class' );
 
-
+// output main team stylesheet
 function imteamcss() {
     wp_register_style('imteam-css', plugin_dir_url( __FILE__ ) . '../assets/team.css');
     wp_enqueue_style('imteam-css');
