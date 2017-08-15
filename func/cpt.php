@@ -21,7 +21,7 @@ function people_cpt() {
 		'label'               => __( 'people', 'text_domain' ),
 		'description'         => __( 'Directory of team members', 'text_domain' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'thumbnail', 'editor' ),
+		'supports'            => array( 'title', 'thumbnail', 'editor', 'page-attributes' ),
 		'taxonomies'          => array( 'groups' ),
 		'hierarchical'        => false,
 		'public'              => true,
