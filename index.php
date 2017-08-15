@@ -22,7 +22,7 @@ Plugin Name: IM Team Page
 Plugin URI: http://imaginalmarketing.com
 Description: A custom post type for staff/team/serfs with filters and stuff. Execute with <strong>[im-teampage]</strong>
 Author: Imaginal Marketing
-Version: 0.1.0
+Version: 0.1.1
 Author URI: http://imaginalmarketing.com
 */
 
