@@ -1,10 +1,28 @@
 <?php global $post;
-$query_vars = array(
-	'post_type' => 'people',
-	'orderby' => 'rand',
-	'posts_per_page' => '-1'
-);
-query_posts($query_vars);?>
+// are there locations? if not, ignore that taxonomy or else you get blank tables
+if (isset($location)) {
+	$query_vars = array(
+		'post_type' => 'people',
+		'orderby' => 'rand',
+		'posts_per_page' => '-1',
+        'tax_query' => array(
+        	array(
+        		'taxonomy'=>'team_location',
+                'field'=>'slug',
+                'terms'=>$location
+            )
+        )
+	);
+} else {
+	$query_vars = array(
+		'post_type' => 'people',
+		'orderby' => 'rand',
+		'posts_per_page' => '-1'
+	);
+}
+
+query_posts($query_vars);
+?>
 
 <div id="teampage-modest">
 

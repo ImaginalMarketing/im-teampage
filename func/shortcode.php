@@ -1,7 +1,11 @@
 <?php
 
 // Output everything via shortcode + choose layout based on setting
-function teampage_shortcode() {
+function teampage_shortcode($atts){
+    // paramater to grab category id input from the user
+    extract(shortcode_atts(array(
+        'location' => NULL
+    ), $atts));
 
 	// add js (isotope + custom loop AJAX)
 	wp_enqueue_script( 'isotope-js', 'https://cdn.jsdelivr.net/isotope/3.0.1/isotope.pkgd.min.js', array( 'jquery' ), '', true );
