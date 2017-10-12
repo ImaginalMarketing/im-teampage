@@ -23,7 +23,7 @@
 		<div id="displayTeam">
 			<h4 class="archive-title text-center"><span></span></span>
 			<h6 id="noitems">Sorry, none of our team members meet your selected criteria. Please try again.</h6>
-			<div id="theteam" class="row"></div>
+			<div id="theteam" class="row" data-featherlight-gallery data-featherlight-filter="a.popup"></div>
 		</div>
 
 
