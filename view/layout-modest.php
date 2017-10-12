@@ -1,9 +1,20 @@
 <?php global $post;
+
+// first, what is the sort order?
+$imteam_sort = get_option('select_layout');
+$sort = 'rand';
+if ($imteam_sort == '1') {
+    $sort = 'menu_order';
+} elseif ($imteam_sort == '0') {
+    $sort = 'rand';
+}
+
 // are there locations? if not, ignore that taxonomy or else you get blank tables
 if (isset($location)) {
 	$query_vars = array(
 		'post_type' => 'people',
-		'orderby' => 'rand',
+		'orderby' => $sort,
+		'order' => 'ASC',
 		'posts_per_page' => '-1',
         'tax_query' => array(
         	array(
@@ -16,7 +27,8 @@ if (isset($location)) {
 } else {
 	$query_vars = array(
 		'post_type' => 'people',
-		'orderby' => 'rand',
+		'orderby' => $sort,
+		'order' => 'ASC',
 		'posts_per_page' => '-1'
 	);
 }

@@ -25,12 +25,15 @@ function teampage_shortcode($atts){
 }
 add_shortcode('im-teampage', 'teampage_shortcode');
 
-// add class to body (currently for featherlight styling purposes)
-function im_team_class( $classes ) {
-    $classes[] = 'im_team_page';
-    return $classes;  
+// add class to body (currently only for featherlight styling purposes)
+function im_team_class( $c ) {
+    global $post;
+    if( isset($post->post_content) && has_shortcode( $post->post_content, 'im-teampage' ) ) {
+        $c[] = 'im_team_page';
+    }
+    return $c;
 }
-add_filter( 'body_class','im_team_class' );
+add_filter( 'body_class', 'im_team_class' );
 
 // output main team stylesheet
 function imteamcss() {

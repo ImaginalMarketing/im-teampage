@@ -21,9 +21,24 @@ function imteam_settings_init() {
             'select_layout', // Should match Option ID
             'Fancy', // Radio Option 1
             'Modest', // Radio Option 2
-			'A straightforward page with the essentials is one option on the table, or hey maybe you\'re feeling a little dangerous and wanna click stuff and make things go.' // Description
+            'A straightforward page with the essentials is one option on the table, or hey maybe you\'re feeling a little dangerous and wanna click stuff and make things go.' // Description
         )  
-    ); 
+    );
+
+    register_setting('imteam','sort_order', 'esc_attr');
+    add_settings_field( // Option 1
+        'sort_order', // Option ID
+        'Sort Order', // Label
+        'imteam_binary_cb', // !important - This is where the args go!
+        'imteam', // Page it will be displayed (imteam Settings)
+        'imteam_general', // Name of our section
+        array( // The $args
+            'sort_order', // Should match Option ID
+            'Random (default)', // Radio Option 1
+            'Custom (via post attributes)', // Radio Option 2
+            '' // Description
+        )  
+    );
 
     register_setting('imteam','show_bios', 'esc_attr');
     add_settings_field( // Option 2
@@ -34,7 +49,7 @@ function imteam_settings_init() {
         'imteam_general', // Name of our section (imteam Settings)
         array( // The $args
             'show_bios', // Should match Option ID
-            'Enables team member bios which popup in a nifty lightbox.' // Description
+            'Enables team member bios which popup in a nifty lightbox. (Fancy layout only)' // Description
         )  
     ); 
 

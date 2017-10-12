@@ -3,11 +3,22 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### To Do:
+- add Featherlight files from WP-Featherlight plugin (don't use latest FL version in theme enqueue)...then add this to #theteam div:
+`data-equalizer data-featherlight-gallery data-featherlight-filter="a.popup"`
 - Add a post-install prompt to select layout style (shortcode doesn't work until a setting is saved)
 - Add setting to toggle default CSS on/off (/func/[option + shortcode].php)
 - For the love of Christ, clean up (/assets/team.css). It's fugly.
+- Add selector for sort ordering so we can do menu order instead of random if owner needs to be at top
 
 _ _ _
+
+
+## [0.1.2] - 2017-08-16
+#### Added
+- Sort order options for Modest layout [rand / custom]
+
+#### Fixed
+- team body class was applying to every page, much to my chagrin
 
 
 ## [0.1.1] - 2017-08-15
