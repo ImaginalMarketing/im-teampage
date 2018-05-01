@@ -14,13 +14,14 @@ function imteam_settings_init() {
     add_settings_field( // Option 1
         'select_layout', // Option ID
         'Select Layout', // Label
-        'imteam_binary_cb', // !important - This is where the args go!
+        'imteam_layout_cb', // !important - This is where the args go!
         'imteam', // Page it will be displayed (imteam Settings)
         'imteam_general', // Name of our section
         array( // The $args
             'select_layout', // Should match Option ID
             'Fancy', // Radio Option 1
             'Modest', // Radio Option 2
+            'Modest Grid', // Radio Option 3
             'A straightforward page with the essentials is one option on the table, or hey maybe you\'re feeling a little dangerous and wanna click stuff and make things go.' // Description
         )  
     );
@@ -49,7 +50,7 @@ function imteam_settings_init() {
         'imteam_general', // Name of our section (imteam Settings)
         array( // The $args
             'show_bios', // Should match Option ID
-            'Enables team member bios which popup in a nifty lightbox. (Fancy layout only)' // Description
+            'Enables team member bios which popup in a nifty lightbox. (Fancy + Modest Grid)' // Description
         )  
     ); 
 
@@ -89,9 +90,18 @@ function general_section_cb() {
 // Binary Radio Callback
 function imteam_binary_cb($args) {
     $option = get_option($args[0]); ?>
+    <input name="<?php echo $args[0]; ?>" type="radio" value="0" <?php checked( 0, $option ); ?> /> <?php echo $args[1]; ?><br/>
+    <input name="<?php echo $args[0]; ?>" type="radio" value="1" <?php checked( 1, $option ); ?> /> <?php echo $args[2]; ?>
+    <p class="description"><?php echo $args[3]; ?></p>
+<?php }
+
+// Layout Radio Callback
+function imteam_layout_cb($args) {
+    $option = get_option($args[0]); ?>
 	<input name="<?php echo $args[0]; ?>" type="radio" value="0" <?php checked( 0, $option ); ?> /> <?php echo $args[1]; ?><br/>
-	<input name="<?php echo $args[0]; ?>" type="radio" value="1" <?php checked( 1, $option ); ?> /> <?php echo $args[2]; ?>
-	<p class="description"><?php echo $args[3]; ?></p>
+    <input name="<?php echo $args[0]; ?>" type="radio" value="1" <?php checked( 1, $option ); ?> /> <?php echo $args[2]; ?><br/>
+	<input name="<?php echo $args[0]; ?>" type="radio" value="2" <?php checked( 2, $option ); ?> /> <?php echo $args[3]; ?>
+	<p class="description"><?php echo $args[4]; ?></p>
 <?php }
 
 // Checkbox Callback

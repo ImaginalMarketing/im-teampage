@@ -9,7 +9,9 @@ function teampage_shortcode($atts){
 
 	// add js (isotope + custom loop AJAX)
 	wp_enqueue_script( 'isotope-js', 'https://cdn.jsdelivr.net/isotope/3.0.1/isotope.pkgd.min.js', array( 'jquery' ), '', true );
-    wp_enqueue_script( 'featherlight-js', plugin_dir_url( __FILE__ ) . '../assets/wpFeatherlight.pkgd.min.js' );
+    if ( !is_plugin_active( 'wp-featherlight/wp-featherlight.php' ) ) {
+        wp_enqueue_script( 'featherlight-js', plugin_dir_url( __FILE__ ) . '../assets/wpFeatherlight.pkgd.min.js' );
+    }
     wp_enqueue_script( 'imteam-js', plugin_dir_url( __FILE__ ) . '../assets/team.js' );
     // WP path variable for team.js
     $wp_path = array( 'wp_path' => get_bloginfo('url') );
@@ -21,6 +23,8 @@ function teampage_shortcode($atts){
         require(plugin_dir_path( __FILE__ ) . '../view/layout-modest.php');
     } elseif ($imteam_layout == '0') {
         require(plugin_dir_path( __FILE__ ) . '../view/layout-fancy.php');
+    } elseif ($imteam_layout == '2') {
+        require(plugin_dir_path( __FILE__ ) . '../view/layout-modest-grid.php');
     } else {
         require(plugin_dir_path( __FILE__ ) . '../view/layout-modest.php');
     }
@@ -43,7 +47,9 @@ function imteamcss() {
     wp_register_style('imteam-css', plugin_dir_url( __FILE__ ) . '../assets/team.css');
     wp_enqueue_style('imteam-css');
 
-    wp_register_style('featherlight-css', plugin_dir_url( __FILE__ ) . '../assets/wp-featherlight.min.css');
-    wp_enqueue_style('featherlight-css');
+    if ( !is_plugin_active( 'wp-featherlight/wp-featherlight.php' ) ) {
+        wp_register_style('featherlight-css', plugin_dir_url( __FILE__ ) . '../assets/wp-featherlight.min.css');
+        wp_enqueue_style('featherlight-css');
+    }
 }
 add_action ('wp_enqueue_scripts', 'imteamcss');

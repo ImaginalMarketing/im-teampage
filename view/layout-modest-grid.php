@@ -36,20 +36,27 @@ if (isset($location)) {
 query_posts($query_vars);
 ?>
 
-<div id="teampage-modest">
+<div id="teampage-modest-grid" class="row small-up-1 medium-up-2 large-up-3" data-featherlight-gallery data-featherlight-filter="a.popup">
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-<div class="team_member">
-	<?php 
-		$image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
-		if( $image ) { ?>
-		<div class="team_img" style="background-image:url('<?php echo $image; ?>');"></div>
-	<?php } else { ?>
-		<div class="team_img" style="background-image:url('<?php echo WP_PLUGIN_URL.'/im-teampage/assets/no-img.jpg'; ?>');"></div>
-	<?php } ?>
+<div class="team_member column column-block">
+	<?php
+			$getimage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+
+			if( $getimage ) {
+				$image = $getimage;
+			} else { $image = WP_PLUGIN_URL.'/im-teampage/assets/no-img.jpg'; }
+
+			// show bios?
+		    $imteam_bios = get_option('show_bios');
+		    if ($imteam_bios == '1') {
+		        echo '<a class="popup" data-featherlight="iframe" data-featherlight-iframe-min-height="100%" data-featherlight-iframe-min-width="100%" href="'.get_permalink().'"><div class="team_img" style="background-image:url(\''.$image.'\');"></div></a>';
+		    } else {
+		        echo '<div class="team_img" style="background-image:url(\''.$image.'\');"></div>';
+		    }
+	?>
 	<h4 class="team_name"><?php the_title(); ?></h4>
-	<h5 class="team_title"><?php the_field('team_title'); ?></h5>
-	<div class="team_bio"><?php the_content(); ?></div>
+	<p class="team_title"><?php the_field('team_title'); ?></p>
 </div>
 <?php endwhile; else : endif; wp_reset_query(); ?>
 

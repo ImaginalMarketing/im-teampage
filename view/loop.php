@@ -4,12 +4,22 @@ define('WP_USE_THEMES', false);
 $parse_uri = explode( 'wp-content', $_SERVER['SCRIPT_FILENAME'] );
 require_once( $parse_uri[0] . 'wp-load.php' );
 
+// first, what is the sort order?
+$imteam_sort = get_option('sort_order');
+$sort = 'rand';
+if ($imteam_sort == '1') {
+    $sort = 'menu_order';
+} elseif ($imteam_sort == '0') {
+    $sort = 'rand';
+}
+
 $location = $_POST['location'];
 $service_cat = $_POST['service_cat'];
 $experience = $_POST['experience'];
 $query_vars = array(
 	'post_type' => 'people',
-	'orderby' => 'rand',
+	'orderby' => $sort,
+	'order' => 'ASC',
 	'posts_per_page' => '-1',
 	'team_experience' => $experience,
 	'team_location' => $location,

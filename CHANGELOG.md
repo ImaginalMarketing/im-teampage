@@ -10,6 +10,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 _ _ _
 
 
+## [0.2] - 2018-4-27
+#### Added
+- Modest Grid layout, basically an Isotope-less version of the Fancy layout
+
+#### Fixed
+- WP-Featherlight plugin detection (disables our Featherlight if present)
+- Custom sort order now available for Fancy layout
+
 ## [0.1.3] - 2017-10-12
 #### Added
 - Prev/Next arrows on popup bios
@@ -37,6 +45,7 @@ _ _ _
 - single team member template (fancy layout popups)
 - body class for easier targeting (.im_team_page)
 - conditional booking button for popups w/ custom URL
+
 #### Fixed
 - settings page by, like, a lot
 - some CSS here + there
@@ -53,6 +62,7 @@ _ _ _
 #### Added
 - Modest layout
 - Advanced Custom Fields
+
 #### Changed
 - Assets load order
 
