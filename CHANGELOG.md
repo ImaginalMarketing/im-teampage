@@ -10,6 +10,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 _ _ _
 
 
+## [0.2.1] - 2018-5-24
+#### Fixed
+- Wrapped [im-teampage] in output buffer so the_content()'s positioning will behave
+
 ## [0.2] - 2018-4-27
 #### Added
 - Modest Grid layout, basically an Isotope-less version of the Fancy layout

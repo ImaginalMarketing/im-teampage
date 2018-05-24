@@ -17,7 +17,8 @@ function teampage_shortcode($atts){
     $wp_path = array( 'wp_path' => get_bloginfo('url') );
     wp_localize_script( 'imteam-js', 'imtheme', $wp_path );
 
-	// select layout
+	// select layout + make sure the_content() renders above the team roster
+    ob_start();
     $imteam_layout = get_option('select_layout');
     if ($imteam_layout == '1') {
         require(plugin_dir_path( __FILE__ ) . '../view/layout-modest.php');
@@ -28,6 +29,9 @@ function teampage_shortcode($atts){
     } else {
         require(plugin_dir_path( __FILE__ ) . '../view/layout-modest.php');
     }
+    $ReturnString = ob_get_contents();
+    ob_end_clean();
+    return $ReturnString;
     
 }
 add_shortcode('im-teampage', 'teampage_shortcode');
