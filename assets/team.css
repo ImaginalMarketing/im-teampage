@@ -26,13 +26,12 @@ form#teamfilter #drop-city label {
   border: none;
   position: relative;
   background: #000;
-  padding: 30px 15px;
+  padding: 20px 10px;
   text-align: center;
   line-height: 1.5;
   font-size: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border: 5px solid #eff2f5;
   transition: all 0.25s ease-in-out;
 }
 form#teamfilter #drop-city label:hover {
@@ -40,7 +39,7 @@ form#teamfilter #drop-city label:hover {
   background: #323232;
 }
 form#teamfilter #drop-city label.on {
-  background: #1882c5;
+  background: #555;
 }
 form#teamfilter #drop-city label:first-child {
   margin-left: 0;
@@ -73,7 +72,7 @@ form#teamfilter #next-step ul#stylistSort li {
   transition: all 0.25s ease-in-out;
 }
 form#teamfilter #next-step ul#stylistSort li.on {
-  border-top: 2px solid #1882c5;
+  border-top: 2px solid #555;
   margin-top: 8px;
 }
 form#teamfilter #next-step ul#stylistSort li h5 {
@@ -90,7 +89,7 @@ form#teamfilter #next-step ul#stylistSort li label input {
   display: none;
 }
 form#teamfilter #next-step label.specialty {
-  color: #1882c5;
+  color: #555;
   text-shadow: 0 1px 0 #fff;
   font-weight: bold;
   text-transform: uppercase;
@@ -108,18 +107,18 @@ form#teamfilter #next-step label.specialty input:before {
   font-family: FontAwesome;
   content: '\f111';
   visibility: visible;
-  color: #d1deea;
+  color: #999;
   transition: all 0.25s ease-in-out;
 }
 form#teamfilter #next-step label.specialty input:checked:before {
   font-family: FontAwesome;
   content: '\f058';
   visibility: visible;
-  color: #7a8690;
+  color: #555;
 }
 form#teamfilter #last-step {
   position: relative;
-  border-top: 1px solid #d1deea;
+  border-top: 1px solid #999;
   display: none;
 }
 form#teamfilter #last-step.on {
@@ -136,11 +135,11 @@ form#teamfilter #last-step .drop-experience li {
 }
 form#teamfilter #last-step .drop-experience li label {
   cursor: pointer;
-  background-color: #d1deea;
+  background-color: #999;
   border-radius: 5px;
   padding: 5px 7px;
   max-height: 30px;
-  color: #7a8690;
+  color: #555;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -149,7 +148,7 @@ form#teamfilter #last-step .drop-experience li label {
 }
 form#teamfilter #last-step .drop-experience li label.active, form#teamfilter #last-step .drop-experience li label:hover {
   color: #fff;
-  background-color: #1882c5;
+  background-color: #555;
 }
 form#teamfilter #last-step .drop-experience li label input {
   display: none;
@@ -179,9 +178,7 @@ h6#noitems.on {
   margin-bottom: 30px;
 }
 #theteam .team_member .team_wrap {
-  padding: 10% 10% 15%;
-  background: #fff;
-  box-shadow: 7px 7px 0px #e3e9ef;
+  padding: 0;
 }
 #theteam .team_member .team_wrap .team_img {
   margin-bottom: 10px;
@@ -199,7 +196,8 @@ h6#noitems.on {
 #theteam .team_member .team_wrap .team_info {
   font-size: 0.9rem;
   line-height: 1rem;
-  color: #1882c5;
+  color: #555;
+  padding: 10px 20px 10px 0;
 }
 #theteam .team_member .team_wrap .team_info span {
   margin-bottom: 5px;
@@ -210,15 +208,13 @@ h6#noitems.on {
   text-transform: uppercase;
   line-height: 1.7rem;
   font-size: 1.25rem;
-  margin: 30px 0 0;
-  color: #1882c5;
+  color: #555;
+  margin-bottom: 0;
 }
 #theteam .team_member .team_wrap .team_info h5 {
   color: #323232;
   font-size: 1rem;
   letter-spacing: normal;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #dadada;
 }
 @media screen and (max-width: 63.9375em) {
   #theteam .team_member .team_wrap .team_info h4 {

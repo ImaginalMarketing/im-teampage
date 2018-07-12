@@ -36,7 +36,7 @@ if (isset($location)) {
 query_posts($query_vars);
 ?>
 
-<div id="teampage-modest-grid" class="row small-up-1 medium-up-2 large-up-3" data-featherlight-gallery data-featherlight-filter="a.popup">
+<div id="teampage-modest-grid" class="row small-up-1 medium-up-2 large-up-3">
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 <div class="team_member column column-block">
@@ -50,7 +50,7 @@ query_posts($query_vars);
 			// show bios?
 		    $imteam_bios = get_option('show_bios');
 		    if ($imteam_bios == '1') {
-		        echo '<a class="popup" data-featherlight="iframe" data-featherlight-iframe-min-height="100%" data-featherlight-iframe-min-width="100%" href="'.get_permalink().'"><div class="team_img" style="background-image:url(\''.$image.'\');"></div></a>';
+		        echo '<a class="popup" data-fancybox="team" data-type="iframe" data-arrows="true" data-src="'.get_permalink().'" href="javascript:;"><div class="team_img" style="background-image:url(\''.$image.'\');"></div></a>';
 		    } else {
 		        echo '<div class="team_img" style="background-image:url(\''.$image.'\');"></div>';
 		    }

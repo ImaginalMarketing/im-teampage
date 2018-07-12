@@ -10,6 +10,14 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 _ _ _
 
 
+## [1.0] - 2018-7-12
+#### Added
+- Layout files can be overwritten via an 'im-teampage' directory in your theme
+
+#### Fixed
+- Traded Featherlight for Fancybox 3
+- Default CSS is more generic / adaptable (affects Fancy layout)
+
 ## [0.2.1] - 2018-5-24
 #### Fixed
 - Wrapped [im-teampage] in output buffer so the_content()'s positioning will behave

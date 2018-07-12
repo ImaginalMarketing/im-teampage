@@ -49,7 +49,7 @@ query_posts($query_vars);?>
 			// show bios?
 		    $imteam_bios = get_option('show_bios');
 		    if ($imteam_bios == '1') {
-		        echo '<a class="popup" data-featherlight="iframe" data-featherlight-iframe-min-height="100%" data-featherlight-iframe-min-width="100%" href="'.get_permalink().'"><div class="team_img" style="background-image:url(\''.$image.'\');"></div></a>';
+		        echo '<a class="popup" data-fancybox="team" data-type="iframe" data-arrows="true" data-src="'.get_permalink().'" href="javascript:;"><div class="team_img" style="background-image:url(\''.$image.'\');"></div></a>';
 		    } else {
 		        echo '<div class="team_img" style="background-image:url(\''.$image.'\');"></div>';
 		    }
@@ -57,7 +57,7 @@ query_posts($query_vars);?>
 		<div class="team_info">
 			<h4><?php the_title(); ?></h4>
 			<h5><?php the_field('team_title'); ?></h5>
-			<span><?php echo $team_exp[0]->name; ?></span><br/>
+			<span><?php echo $team_exp[0]->name; ?></span>
 		</div>
 	</div>
 </div>
