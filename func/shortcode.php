@@ -17,7 +17,7 @@ function teampage_shortcode($atts){
     // select layout + make sure the_content() renders above the team roster
     ob_start();
     $imteam_layout = get_option('select_layout');
-    $theme_url = get_site_url().'/wp-content/themes/'.get_option('stylesheet').'/';
+    $theme_url = get_stylesheet_directory().'/';
 
         if ($imteam_layout == '1') {
             // modest
