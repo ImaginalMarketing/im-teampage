@@ -180,10 +180,14 @@ function imteam_options_page_html() {
 // Finally, set template file for individual team member (if popups are desired)
 add_filter('single_template', 'set_single_template');
 function set_single_template($single) {
+    $theme_url = get_stylesheet_directory().'/';
     global $wp_query, $post;
     if ($post->post_type == 'people'){
-        if(file_exists(plugin_dir_path( __FILE__ ) . '../view/single.php'))
-            return plugin_dir_path( __FILE__ ) . '../view/single.php';
+        if ( !empty( locate_template( 'im-teampage/single.php' ) ) ) {
+                return $theme_url . 'im-teampage/single.php';
+            } else {
+                return plugin_dir_path( __FILE__ ) . '../view/single.php';
+        }
     }
     return $single;
 }
