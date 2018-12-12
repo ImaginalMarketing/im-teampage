@@ -9,6 +9,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 _ _ _
 
+## [1.1] - 2018-12-12
+#### Added
+- Setting to upload default image to be used when there is no featured image selected
 
 ## [1.0] - 2018-7-12
 #### Added

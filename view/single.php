@@ -15,11 +15,14 @@
 	while (have_posts()) : the_post();
 
 	$getimage = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+	$default_image = get_option('default_team_img');
 	$team_exp = wp_get_post_terms($post->ID, 'team_experience', array("fields" => "all"));
 	$team_loc = wp_get_post_terms($post->ID, 'team_location', array("fields" => "all"));
 
 	if( $getimage ) {
 		$image = $getimage;
+	} elseif ($default_image !== '') {
+		$image = $default_image;
 	} else { $image = WP_PLUGIN_URL.'/im-teampage/assets/no-img.jpg'; }
 
 ?>

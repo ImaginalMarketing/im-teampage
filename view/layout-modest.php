@@ -42,9 +42,12 @@ query_posts($query_vars);
 <div class="team_member">
 	<?php 
 		$image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
+		$default_image = get_option('default_team_img');
 		if( $image ) { ?>
 		<div class="team_img" style="background-image:url('<?php echo $image; ?>');"></div>
-	<?php } else { ?>
+	<?php } elseif ($default_image !== '') { ?>
+		<div class="team_img" style="background-image:url('<?php echo $default_image; ?>');"></div>
+				<?php } else { ?>
 		<div class="team_img" style="background-image:url('<?php echo WP_PLUGIN_URL.'/im-teampage/assets/no-img.jpg'; ?>');"></div>
 	<?php } ?>
 	<h4 class="team_name"><?php the_title(); ?></h4>

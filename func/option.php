@@ -80,6 +80,19 @@ function imteam_settings_init() {
         )  
     ); 
 
+    register_setting('imteam','default_team_img', 'esc_attr');
+    add_settings_field( // Option 2
+        'default_team_img', // Option ID
+        'Default Team Image', // Label
+        'imteam_image_upload', // !important - This is where the args go!
+        'imteam', // Page it will be displayed
+        'imteam_general', // Name of our section (imteam Settings)
+        array( // The $args
+            'default_team_img', // Should match Option ID
+            'The default image to be used if no image is uploaded for the team member.' // Description
+        )  
+    ); 
+
 }
 
 // Section Info Callback
@@ -117,7 +130,30 @@ function imteam_textbox_cb($args) {
     echo '<input type="text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
 }
 
-
+// Image Callback
+function imteam_image_upload($args) {
+    $option = get_option($args[0]);
+    wp_enqueue_media();
+    echo '<input type="text" id="child_logo_url" name="'. $args[0] .'" value="'. $option .'" size="50" />'; 
+    echo '<input id="child_upload_logo_button" type="button" class="button" value="Upload Image" /> ';
+    ?>
+    <p class="description"><?php echo $args[1]; ?></p>
+    
+    <script type="text/javascript">
+    // JavaScript to launch media uploader, should be enqueued in a separate file
+    jQuery(document).ready(function() {
+        jQuery('#child_upload_logo_button').click(function() {
+            wp.media.editor.send.attachment = function(props, attachment) {
+                jQuery('#child_logo_url').val(attachment.url);
+            }
+        wp.media.editor.open(this);
+        return false;
+        });
+    });
+    </script>
+    
+    <?php
+}
 
 /**
  * top level menu
