@@ -9,7 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 _ _ _
 
-## [1.1.1] - 2018-12-12
+## [1.1.1] - 2019-01-21
 #### Fixed
 - Fancybox loading spinner now actually spins instead of just shaking about
 
