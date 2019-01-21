@@ -285,3 +285,43 @@ MODEST GRID LAYOUT
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/*************************************
+FANCYBOX LOADING ANIMATION OVERRIDE
+*************************************/
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* !important overrides/fixes Foundation's keyframes.scss interference */
+.fancybox-loading {
+  -webkit-animation: rotating 2s linear infinite !important;
+  -moz-animation: rotating 2s linear infinite !important;
+  -ms-animation: rotating 2s linear infinite !important;
+  -o-animation: rotating 2s linear infinite !important;
+  animation: rotating 0.75s linear infinite !important;
+}
