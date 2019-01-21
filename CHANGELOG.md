@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 _ _ _
 
+## [1.1.1] - 2018-12-12
+#### Fixed
+- Fancybox loading spinner now actually spins instead of just shaking about
+
 ## [1.1] - 2018-12-12
 #### Added
 - Setting to upload default image to be used when there is no featured image selected
