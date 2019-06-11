@@ -52,6 +52,9 @@ query_posts($query_vars);
 	<?php } ?>
 	<h4 class="team_name"><?php the_title(); ?></h4>
 	<h5 class="team_title"><?php the_field('team_title'); ?></h5>
+	<?php  if (get_field('team_instagram')) {
+		        echo '<p><a class="button instagram_button" href="https://www.instagram.com/'.get_field('team_instagram').'/" target="_blank"><i class="fa fa-instagram"></i> '.get_field('team_instagram').'</a></p>';
+		    } else { echo ''; } ?>
 	<div class="team_bio"><?php the_content(); ?></div>
 </div>
 <?php endwhile; else : endif; wp_reset_query(); ?>

@@ -9,6 +9,10 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 _ _ _
 
+## [1.1.2] - 2019-06-11
+#### Added
+- Instagram handle field
+
 ## [1.1.1] - 2019-01-21
 #### Fixed
 - Fancybox loading spinner now actually spins instead of just shaking about

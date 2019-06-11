@@ -2,6 +2,8 @@
 <head>
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="stylesheet" href="<?php echo WP_PLUGIN_URL; ?>/im-teampage/assets/team.css" />	
+<!-- FontAwesome -->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <style>
 	body.team-member {
 		padding: 30px;
@@ -38,6 +40,10 @@
 		    $imteam_booking = get_option('show_booking');
 		    if ($imteam_booking == '1') {
 		        echo '<a class="button booking" href="'.get_site_url().'/'.get_option("booking_link").'">Book Now</a>';
+		    } else { echo ''; } 
+		    // Instagram Link?
+		    if (get_field('team_instagram')) {
+		        echo '<a class="button instagram_button" href="https://www.instagram.com/'.get_field('team_instagram').'/" target="_blank"><i class="fa fa-instagram"></i> '.get_field('team_instagram').'</a>';
 		    } else { echo ''; } ?>
 
 		</div>
