@@ -54,7 +54,7 @@ if (hash) {
 /////////// GO GO GADGET click handlers for the stepped process
 // select city, open main cats
 $("#drop-city label").click(function(){
-  $("#stylistSort li input, #last-step input").attr("checked", false);
+  $("#stylistSort li input, #last-step input").prop("checked", false);
   $("#stylistSort li").removeClass('on');
   $("#last-step").fadeOut('slow');
   //var $grid = $('#theteam');
